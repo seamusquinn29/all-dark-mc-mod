@@ -18,43 +18,29 @@ neoForge {
     runs {
         client {
             client()
-            workingDirectory project.file('run')
+            gameDirectory = project.file('run')
             property 'forge.enabledGameTestNamespaces', 'alldarkmod'
-            mods {
-                alldarkmod {
-                    sourceSet sourceSets.main
-                }
-            }
         }
         server {
             server()
-            workingDirectory project.file('run')
+            gameDirectory = project.file('run')
             property 'forge.enabledGameTestNamespaces', 'alldarkmod'
-            mods {
-                alldarkmod {
-                    sourceSet sourceSets.main
-                }
-            }
         }
         gameTestServer {
             type = "gameTestServer"
-            workingDirectory project.file('run')
+            gameDirectory = project.file('run')
             property 'forge.enabledGameTestNamespaces', 'alldarkmod'
-            mods {
-                alldarkmod {
-                    sourceSet sourceSets.main
-                }
-            }
         }
         data {
             data()
-            workingDirectory project.file('run')
+            gameDirectory = project.file('run')
             args '--mod', 'alldarkmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            mods {
-                alldarkmod {
-                    sourceSet sourceSets.main
-                }
-            }
+        }
+    }
+    
+    mods {
+        alldarkmod {
+            sourceSet sourceSets.main
         }
     }
 }
