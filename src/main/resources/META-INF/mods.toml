@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[57,)"
+license="MIT"
+
+[[mods]]
+modId="alldarkmod"
+version="1.0.0"
+displayName="All Dark Mod"
+description='''
+Makes the entire world a Deep Dark biome with hostile mob spawning and increased hunger drain.
+Features:
+- Entire world is Deep Dark biome from bedrock to Y=320
+- Normal hostile mobs can spawn in Deep Dark
+- Increased hunger drain even when standing still
+- More frequent Ancient City generation
+- No surface access - bedrock ceiling at Y=320
+'''
+
+[[dependencies.alldarkmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[57,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.alldarkmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.21.7,1.22)"
+    ordering="NONE"
+    side="BOTH" 

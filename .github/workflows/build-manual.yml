@@ -1,0 +1,63 @@
+name: Build All Dark Mod (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'Build type'
+        required: true
+        default: 'release'
+        type: choice
+        options:
+        - release
+        - debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Make Gradle wrapper executable
+      run: chmod +x gradlew
+      
+    - name: Build with Gradle
+      run: |
+        if [ "${{ github.event.inputs.build_type }}" = "debug" ]; then
+          ./gradlew build --debug
+        else
+          ./gradlew build
+        fi
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: all-dark-mod-${{ github.run_number }}
+        path: build/libs/*.jar
+        retention-days: 30
+        
+    - name: Show build info
+      run: |
+        echo "Build completed successfully!"
+        echo "JAR files created:"
+        ls -la build/libs/
+        echo ""
+        echo "Download the JAR file from the Actions tab to install the mod." 
