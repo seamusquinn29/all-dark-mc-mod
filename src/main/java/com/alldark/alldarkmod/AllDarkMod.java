@@ -15,15 +15,18 @@ public class AllDarkMod {
     public static final String MOD_ID = "alldarkmod";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public AllDarkMod(IEventBus modEventBus) {
+    public AllDarkMod() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
         // Register the setup method for modloading
         modEventBus.addListener(this::setup);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(HungerManager.class);
 
         // Register the deferred registry
-        ModBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
+        ModBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
