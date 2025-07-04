@@ -26,7 +26,7 @@ public class HungerManager {
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer serverPlayer) {
+        if (event.player instanceof ServerPlayer serverPlayer) {
             UUID playerUUID = serverPlayer.getUUID();
 
             // Check if player is in Deep Dark biome
