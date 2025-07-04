@@ -32,55 +32,27 @@ A Minecraft Forge mod for version 1.21.7 that transforms the entire world into a
 - Minecraft 1.21.7
 - Forge 50.0.0 or later
 
-### Building the Mod
+### Building the Mod & Creating a Release
 
-#### Option 1: Using GitHub Actions (Recommended)
-Since this mod has compatibility issues with Apple Silicon Macs, the easiest way to build it is using GitHub Actions:
+This project uses [release-please](https://github.com/googleapis/release-please) to automate the release process.
 
-1. **Push this code to a GitHub repository**
-2. **Go to the Actions tab** in your GitHub repository
-3. **Run the "Build All Dark Mod (Manual)" workflow**
-   - Click "Run workflow"
-   - Choose "release" build type
-   - Click "Run workflow"
-4. **Download the built JAR**
-   - Once the workflow completes, go to the workflow run
-   - Download the "all-dark-mod-X" artifact
-   - Extract the JAR file from the downloaded zip
+#### How it Works
+1.  **Commit Changes**: Make your changes and commit them to the `main` branch using the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+    - `feat: A new feature` will result in a `minor` version bump (e.g., `1.0.0` -> `1.1.0`).
+    - `fix: A bug fix` will result in a `patch` version bump (e.g., `1.0.0` -> `1.0.1`).
+    - `feat!: A breaking change` will result in a `major` version bump (e.g., `1.0.0` -> `2.0.0`).
 
-#### Option 2: Local Build (Windows/Linux)
-If you're on Windows or Linux (not Apple Silicon Mac):
+2.  **`release-please` Creates a PR**: On every push to `main`, the `release-please` workflow runs. If it finds release-worthy commits, it will create a "Release PR" that contains an updated `CHANGELOG.md` and the new version number bumped in the project files.
 
-1. **Clone or download this repository**
-   ```bash
-   git clone <repository-url>
-   cd all-dark-mc-mod
-   ```
+3.  **Merge the PR**: Review and merge the "Release PR".
 
-2. **Build the mod**
-   ```bash
-   # On Linux/macOS:
-   ./gradlew build
-   
-   # On Windows:
-   gradlew.bat build
-   ```
+4.  **Release is Created**: Merging the PR triggers `release-please` to create a new GitHub Release with the correct version tag.
 
-3. **Find the mod JAR**
-   - The built mod will be in `build/libs/alldarkmod-1.0.0.jar`
+5.  **Build is Triggered**: The new GitHub Release triggers the `Release Build` workflow, which builds the mod.
 
-#### Option 3: Create a Release
-To create an official release with automatic builds:
+6.  **JAR is Uploaded**: The workflow uploads the compiled `.jar` file as an asset to the GitHub Release, ready for you to download.
 
-1. **Create and push a tag**
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-
-2. **GitHub Actions will automatically build and create a release**
-   - The JAR file will be available in the Releases section
-   - Users can download it directly from GitHub
+This provides a fully automated way to build and release your mod without needing a local build environment.
 
 ### Installing the Mod
 

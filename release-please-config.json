@@ -1,0 +1,15 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "java",
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "src/main/resources/META-INF/mods.toml",
+          "jsonpath": "$.version"
+        }
+      ]
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+} 

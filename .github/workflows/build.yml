@@ -1,15 +1,8 @@
-name: Build All Dark Mod
+name: Release Build
 
 on:
-  push:
-    tags:
-      - 'v*'
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to build (e.g., 1.0.0)'
-        required: true
-        default: '1.0.0'
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -41,43 +34,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: all-dark-mod
-        path: build/libs/*.jar
-        
-    - name: Create Release
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v2
-      with:
-        files: build/libs/*.jar
-        name: All Dark Mod ${{ github.ref_name }}
-        body: |
-          # All Dark Mod ${{ github.ref_name }}
-          
-          A Minecraft Forge mod that transforms the entire world into a Deep Dark biome with enhanced gameplay mechanics.
-          
-          ## Features
-          - 🌍 Complete Deep Dark world from bedrock to Y=320
-          - 👹 All hostile mobs can spawn in Deep Dark biomes
-          - 🍖 Increased hunger drain to force exploration
-          - 🏛️ More frequent Ancient City generation
-          - 🧱 Bedrock ceiling at Y=320 blocks surface access
-          
-          ## Installation
-          1. Install Forge 57.0.0+ for Minecraft 1.21.7
-          2. Download the JAR file from this release
-          3. Place it in your Minecraft mods folder
-          4. Start a new world and enjoy the eternal darkness!
-          
-          ## Requirements
-          - Minecraft 1.21.7
-          - Forge 57.0.0 or later
-          - Java 21
-          
-          Built with ❤️ for the Minecraft modding community.
-        draft: false
-        prerelease: false
+    - name: Upload Release Asset
+      run: gh release upload ${{ github.event.release.tag_name }} build/libs/*.jar --clobber
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
