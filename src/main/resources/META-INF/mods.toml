@@ -17,7 +17,7 @@ Features:
 '''
 
 [[dependencies.alldarkmod]]
-    modId="forge"
+    modId="neoforge"
     mandatory=true
     versionRange="[57,)"
     ordering="NONE"

@@ -2,11 +2,11 @@ package com.alldark.alldarkmod;
 
 import com.alldark.alldarkmod.core.registries.ModBiomeModifiers;
 import com.alldark.alldarkmod.hunger.HungerManager;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.eventbus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,8 +22,8 @@ public class AllDarkMod {
         modEventBus.addListener(this::setup);
 
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(HungerManager.class);
+        NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(HungerManager.class);
 
         // Register the deferred registry
         ModBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
