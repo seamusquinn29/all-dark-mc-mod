@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.4...v1.1.5) (2025-07-04)
+
+
+### Bug Fixes
+
+* did bro cook? ([b2693e1](https://github.com/seamusquinn29/all-dark-mc-mod/commit/b2693e1cec63508d7f5996db11b25a03f09eddab))
+
 ## [1.1.4](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.3...v1.1.4) (2025-07-04)
 
 
