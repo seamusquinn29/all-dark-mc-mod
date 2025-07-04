@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.3...v1.1.4) (2025-07-04)
+
+
+### Bug Fixes
+
+* NEOFORGE ITS TIME TO BUILD ([7f46f3a](https://github.com/seamusquinn29/all-dark-mc-mod/commit/7f46f3ab7818a60f40e2fd562d4cf8f9f1c85c7e))
+
 ## [1.1.3](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.2...v1.1.3) (2025-07-04)
 
 
