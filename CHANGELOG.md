@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.6...v1.1.7) (2025-07-04)
+
+
+### Bug Fixes
+
+* build ([d2fc9db](https://github.com/seamusquinn29/all-dark-mc-mod/commit/d2fc9db287bb18bd5b8f2e2c2aeee6d1c8900378))
+
 ## [1.1.6](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.5...v1.1.6) (2025-07-04)
 
 
