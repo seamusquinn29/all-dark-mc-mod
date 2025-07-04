@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.5...v1.1.6) (2025-07-04)
+
+
+### Bug Fixes
+
+* upgrade gradle ([3ad7903](https://github.com/seamusquinn29/all-dark-mc-mod/commit/3ad790344890c45399acfa07fcc886595d33c1eb))
+
 ## [1.1.5](https://github.com/seamusquinn29/all-dark-mc-mod/compare/v1.1.4...v1.1.5) (2025-07-04)
 
 
