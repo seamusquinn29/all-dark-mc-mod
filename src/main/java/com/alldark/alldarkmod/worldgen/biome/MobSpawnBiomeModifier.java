@@ -1,7 +1,6 @@
 package com.alldark.alldarkmod.worldgen.biome;
 
 import com.alldark.alldarkmod.core.registries.ModBiomeModifiers;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;

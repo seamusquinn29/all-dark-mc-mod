@@ -94,6 +94,15 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     // Put repositories for dependencies here
+    mavenCentral()
+    maven {
+        name = 'Mojang'
+        url = 'https://libraries.minecraft.net/'
+    }
+    maven {
+        name = 'LWJGL'
+        url = 'https://repo1.maven.org/maven2/'
+    }
     // NeoForged's Maven repository to host Parchment mappings
     // https://github.com/NeoForged/NeoForged/blob/main/Mojang.md
     maven {
@@ -104,11 +113,6 @@ repositories {
         // location of the maven that hosts Parchment mappings
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
-    }
-    mavenCentral()
-    maven {
-        name = 'Mojang'
-        url = 'https://libraries.minecraft.net/'
     }
 }
 
